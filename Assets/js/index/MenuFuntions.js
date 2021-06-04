@@ -1,53 +1,59 @@
-const requestURL = 'http://api.adamix.net/apec/cedula/';
-const request = new XMLHttpRequest();
 
-var c;
-var cedulaRegistro;
-var cedulaAdmin;
-var estadoDeLaCedula;
+function SingUp(){
 
+    document.getElementById('login').style.display="none";
+    document.getElementById('btn-login-admin').style.display="none";
+    document.getElementById("btn-login-back").style.display="none";
 
-
-//cambios de ventanas
-function Registrarse(){
-    GetInfoAdmin();
-    cedula.value='';
-    passwordAdmin.value='';
-    document.getElementById('admin').style.display="none";
-    document.getElementById('registrarse').style.display="";
+    document.getElementById('singup').style.display="";
     
 
 }
 
-function VolverRegistrarse(){
-    document.getElementById('registrarse').style.display="none";
-    document.getElementById('admin').style.display="";
-}
-function VolverAdminPanel(){
-    document.getElementById('btn-admin').style.display="";
-    document.getElementById("btn-admin-volver").style.display="none";
-
+function BackSingUp(){
+    document.getElementById('singup').style.display="none";
+    document.getElementById('btn-login-admin').style.display="";
+    document.getElementById("btn-login-back").style.display="";
     document.getElementById('login').style.display="";
-    document.getElementById('admin').style.display="none";
 }
 
+function LoginPanel(){
+    document.getElementById('btn-login').style.display="none";
+    document.getElementById("btn-login-back").style.display="";
+    document.getElementById('login').style.display="";
+    document.getElementById('btn-login-admin').style.display="";
+
+}
+
+function BackLoginPanel(){
+    document.getElementById('btn-login').style.display="";
+    document.getElementById("btn-login-back").style.display="none";
+    document.getElementById('login').style.display="none";
+    document.getElementById('btn-login-admin').style.display="none";
+
+}
 function AdminPanel(){
 
-    history.pushState(null, '', 'index.php');
+    document.getElementById("btn-login-back").style.display="none";
+    document.getElementById('login').style.display="none";
+    document.getElementById('btn-login-admin').style.display="none";
 
-    if(obj==1){
-        window.location.href = "Pages/Admin/menu/menu.php"; 
+    document.getElementById("btn-loginAdmin-back").style.display="";
+    document.getElementById("adminLogin").style.display="";
 
-    }
-    else{
-        document.getElementById('btn-admin').style.display="none";
-        document.getElementById("btn-admin-volver").style.display="";
-
-        document.getElementById('login').style.display="none";
-        document.getElementById('admin').style.display="";
-    }
 
 }
+function BackLoginAdminPanel(){
+    document.getElementById("btn-login-back").style.display="";
+    document.getElementById('login').style.display="";
+    document.getElementById('btn-login-admin').style.display="";
+
+    document.getElementById("btn-loginAdmin-back").style.display="none";
+    document.getElementById("adminLogin").style.display="none";
+
+}
+
+
 
 
 //Limpiar campos
