@@ -1,4 +1,6 @@
 <?php
+include 'Empleos/Admin/loginAdmin.php';
+include 'Empleos/Empleador/loginEmpleador.php';
 require_once 'layout/layout.php';
 require_once 'layout/menu.php';
 

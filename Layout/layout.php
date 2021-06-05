@@ -10,7 +10,7 @@
 
     function printHeader(){
 
-        $directory = ($this->IsRoot) ? "" : "../../../";
+        $directory = ($this->IsRoot) ? "" : "../../";
 
         $header = <<<EOF
 <!DOCTYPE html>
@@ -78,7 +78,7 @@ EOF;
                             <br>
                             <div class="col-md-12 text-center">
                                 <button type="button" class="btn btn-warning btn-lg"onclick="SingUp()">Registrarse</button>
-                                <button type="submit" class="btn btn-success btn-lg" onclick="checkLogin()">Ingresar</button>
+                                <button type="submit" class="btn btn-success btn-lg" onclick="CheckLogin()">Ingresar</button>
                             </div>
 
                     </div>
@@ -105,25 +105,30 @@ EOF;
                     <div class="card-title"> 
                         <h3 class="text-center">Complete toda la informacion</h3>
                     </div>
+                    
+                    <form id="formSingUp" method="post" enctype="multipart/form-data">
 
-                    <form id="formRegistro" method="post" enctype="multipart/form-data">
+                        <div class="margen-top-2">
+                            <label for="nameSingUp" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nameSingUp">
+                        </div>
+                        <div class="margen-top-2">
+                            <label for="companySingUp" class="form-label">Compañia:</label>
+                            <input type="text" class="form-control" id="companySingUp">
+                        </div>
+                        <div class="margen-top-2">
+                            <label for="userSingUp" class="form-label">Usuario:</label>
+                            <input type="text" class="form-control" id="userSingUp">
+                        </div>
+                        <div class="margen-top-2">
+                            <label for="passwordSingUp1" class="form-label">Constraseña:</label>
+                            <input type="password" class="form-control" id="passwordSingUp1">
+                        </div>
+                        <div class="margen-top-2">
+                            <label for="passwordSingUp2" class="form-label">Confirmar Constraseña:</label>
+                            <input type="password" class="form-control" id="passwordSingUp2">
+                        </div>
 
-                        <div class="margen-top-2">
-                            <label for="cedulaAdminRegistro" class="form-label">Cedula:</label>
-                            <input type="text" class="form-control" id="cedulaAdminRegistro">
-                        </div>
-                        <div class="margen-top-2">
-                            <label for="passwordAdminRegistro" class="form-label">Constraseña:</label>
-                            <input type="password" class="form-control" id="passwordAdminRegistro">
-                        </div>
-                        <div class="margen-top-2">
-                            <label for="password2AdminRegistro" class="form-label">Confirmar Constraseña:</label>
-                            <input type="password" class="form-control" id="password2AdminRegistro">
-                        </div>
-                        <div class="margen-top-2">
-                            <label for="codigoRegistro" class="form-label">Codigo de Registro:</label>
-                            <input type="text" class="form-control" id="codigoRegistro">
-                        </div>
                     </form>
                     <br>
                     <div class="col-md-12 text-center">
@@ -145,7 +150,6 @@ EOF;
 
     function printAdminLogin(){
 
-        $directory = ($this->IsRoot) ? "" : "../";
 
         $admin = <<<EOF
 
@@ -168,7 +172,7 @@ EOF;
                             </form>
                             <br>
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-success btn-lg" onclick="checkAdmin()">Ingresar</button>
+                                <button type="submit" class="btn btn-success btn-lg" onclick="CheckAdmin()">Ingresar</button>
                             </div>
 
                     </div>
@@ -187,12 +191,16 @@ EOF;
 
     function printFooter(){
 
-        $directory = ($this->IsRoot) ? "" : "../../../";
+        $directory = ($this->IsRoot) ? "" : "../../";
 
         $footer = <<<EOF
 
         </main>      
         <script src="{$directory}assets/js/index/MenuFuntions.js"></script>
+        <script src="{$directory}assets/js/index/LoginFuntions.js"></script>
+        <script src="{$directory}assets/js/index/SingUpFuntions.js"></script>
+        <script src="{$directory}assets/js/index/AdminFuntions.js"></script>
+
 
 
         <script src="{$directory}assets/js/bootstrap/bootstrap.min.js"></script>

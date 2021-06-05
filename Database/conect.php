@@ -12,8 +12,6 @@ class Conect{
         if($this->db->connect_error){
             exit('Error connecting to database');
         }
-
-
         
     }
 
