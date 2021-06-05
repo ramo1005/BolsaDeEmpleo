@@ -12,8 +12,12 @@
         $check=$admin->CheckAdmin($_POST['userAdmin'],$_POST['passwordAdmin']);
 
         if($check->num_rows==1){
-            $_SESSION['admin']='true';
-            echo '1';
+            while($row = $check->fetch_assoc()){
+                $_SESSION['admin']='true';
+                $_SESSION['adminLogin']=$row['id'];
+                echo '1';
+
+            }
         }
         else{
             echo '0';

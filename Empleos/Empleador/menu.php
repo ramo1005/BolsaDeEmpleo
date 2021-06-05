@@ -14,7 +14,7 @@ if (!isset($_SESSION['empleador'])){
 
 ?>
 
-<?php echo $layout->printHeader(); ?>
+<?php echo $layout->printHeader();?>
 
 
 

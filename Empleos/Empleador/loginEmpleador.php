@@ -10,8 +10,11 @@
         $check=$empleadorService->CheckEmpleador($_POST['userEmpleador'],$_POST['passwordEmpleador']);
 
         if($check->num_rows==1){
-            $_SESSION['empleador']='true';
-            echo '1';
+            while($row = $check->fetch_assoc()){
+                $_SESSION['empleador']='true';
+                $_SESSION['empleadorLogin']=$row['id'];
+                echo '1';
+            }
         }
         else{
             echo '0';
