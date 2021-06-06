@@ -60,6 +60,30 @@
             
             return $result;
         }
+        function ToListAllEmpleos($category){
+            $stmt = $this->conexcion->prepare("select * from empleo where estado='activo' and categoria=? order by creado desc");
+            $stmt->bind_param("s",$category);
+
+
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            $stmt->close();
+            
+            return $result;
+        }
+        function CountEmpleosCategory($category){
+            $stmt = $this->conexcion->prepare("select * from empleo where estado='activo' and categoria=?");
+            $stmt->bind_param("s",$category);
+
+            $stmt->execute();
+            $stmt->store_result();
+            $totalRows = $stmt->num_rows;            
+            $stmt->close();
+
+            return $totalRows;
+
+        }
 
         function photoId(){
             $stmt = $this->conexcion->prepare("select * from empleo");

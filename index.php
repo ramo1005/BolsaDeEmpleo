@@ -12,7 +12,7 @@ $menu = new Menu();
 ?>
 
 <?php echo $layout->printHeader(); ?>
-<?php echo $menu->loginBar(); ?>
+<?php echo $menu->loginBar();include 'Empleos/portada.php'; ?>
 
 <?php echo $layout->printLogin(); ?>
 <?php echo $layout->printSingUp(); ?>

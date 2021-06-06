@@ -69,6 +69,11 @@ function CheckAddJobEmpleador(){
         alert('Puesto Agregado'); 
     }
 }
+function CloseInfoEmpleo(){
+    close();
+
+}
+
 function ExitEmpleador(){
     $.ajax({
         url: 'menu.php',
