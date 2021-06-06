@@ -16,7 +16,15 @@ if (!isset($_SESSION['admin'])){
 
 <?php echo $layout->printHeader();?>
 
-
+    <center id="adminOpcion">
+        <div class="card-body">
+            <button type="button" class="btn btn-dark"onclick="AddJob()">Agregar Puesto </button>            
+            <button type="button" class="btn btn-dark"onclick="ReleaseJob()">Editar Puestos </button>
+            <button type="button" class="btn btn-dark"onclick="DeleteJob()">Borrar Puestos</button>
+            <button type="button" class="btn btn-warning"onclick="ShowJobs()">Listar Puestos</button>   
+            <button type="button" class="btn btn-danger float-end"onclick="ExitEmpleador()">Salir</button>     
+        </div>
+    </center>
 
 
 

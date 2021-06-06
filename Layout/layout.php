@@ -200,6 +200,8 @@ EOF;
         <script src="{$directory}assets/js/index/LoginFuntions.js"></script>
         <script src="{$directory}assets/js/index/SingUpFuntions.js"></script>
         <script src="{$directory}assets/js/index/AdminFuntions.js"></script>
+        <script src="{$directory}assets/js/index/EmpleadorFuntions.js"></script>
+
 
 
 
