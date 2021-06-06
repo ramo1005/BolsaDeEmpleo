@@ -49,6 +49,17 @@
             return $result;
             
         }
+        function ToListEmpleos($id){
+            $stmt = $this->conexcion->prepare("select * from empleo where id_empleador=?");
+            $stmt->bind_param("s",$id);
+
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            $stmt->close();
+            
+            return $result;
+        }
 
         function photoId(){
             $stmt = $this->conexcion->prepare("select * from empleo");

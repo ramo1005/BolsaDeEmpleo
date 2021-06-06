@@ -14,7 +14,7 @@
                     <div class="card-header text-white bg-dark"><h3 class="text-center"> Datos del Trabajo</h3></div>
                     <div class="card-body">
                         <div class="card-title"> <h3 class="text-center">Complete toda la informacion</h3></div>
-                            <form id="formEmpleo" method="post"  enctype="multipart/form-data">
+                            <form id="formEmpleo" method="post" onsubmit="return false" enctype="multipart/form-data">
                                 <div class="margen-top-2">
                                     <label for="name" class="form-label">Nombre:</label>
                                     <input type="text" class="form-control" id="name"name="name">

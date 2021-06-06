@@ -7,6 +7,10 @@ $layout = new Layout(false);
 $menu = new Menu();
 session_start();
 
+if(isset($_POST['exitEmpleador'])){
+    session_destroy();
+}
+
 if (!isset($_SESSION['empleador'])){
     header('Location: ../../index.php');
 }
@@ -18,14 +22,13 @@ if (!isset($_SESSION['empleador'])){
 
     <center id="empleadorOption">
         <div class="card-body">
-            <button id="btn-login-back" type="button" class="btn btn-dark  " style="display:none;" onclick="BackLoginPanel()">Volver</button>
-
-            <button type="button" class="btn btn-dark"onclick="AddJobEmpleador()">Agregar Puesto </button>            
-            <button type="button" class="btn btn-warning"onclick="ShowJobsEmpleador()">Listar Puestos Agregados</button>   
-            <button type="button" class="btn btn-danger float-end"onclick="ExitEmpleador()">Salir</button>     
+            <button id="btn-menu-back" type="button" class="btn btn-warning " style="display:none;" onclick="BackMenuEmpleador()">Volver</button>
+            <button id="btn-menu-add" type="button" class="btn btn-dark"onclick="AddJobEmpleador()">Agregar Puesto </button>            
+            <button id="btn-menu-list" type="button" class="btn btn-warning"onclick="ShowJobsEmpleador()">Listar Puestos Agregados</button>   
+            <button id="btn-menu-exit"type="button" class="btn btn-danger float-end"onclick="ExitEmpleador()">Salir</button>     
         </div>
     </center>
 
     
 
-<?php echo $layout->printFooter(); include 'addEmpleador.php';?>
+<?php include 'listEmpleador.php';echo $layout->printFooter(); include 'addEmpleador.php';?>

@@ -27,8 +27,7 @@
 
         $empleador = new Empleador($_POST['name'],$_POST['company'],$_POST['user'],$_POST['password']);
         $empleadorService->InsertEmpleador($empleador);
-
-        
+ 
     }
 
 ?>

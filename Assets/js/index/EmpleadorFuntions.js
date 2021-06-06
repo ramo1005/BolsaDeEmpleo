@@ -1,3 +1,20 @@
+function ShowJobsEmpleador(){
+    document.getElementById('btn-menu-back').style.display="";
+    document.getElementById('btn-menu-add').style.display="none";
+    document.getElementById('btn-menu-list').style.display="none";
+    document.getElementById('btn-menu-exit').style.display="none";
+
+    document.getElementById('tableEmpleos').style.display="";
+
+}
+function BackMenuEmpleador(){
+    document.getElementById('btn-menu-back').style.display="none";
+    document.getElementById('btn-menu-add').style.display="";
+    document.getElementById('btn-menu-list').style.display="";
+    document.getElementById('btn-menu-exit').style.display="";
+
+    document.getElementById('tableEmpleos').style.display="none";
+}
 
 function GetInfoJobEmpleador(){
     var company =document.getElementById('company');
@@ -48,6 +65,17 @@ function CheckAddJobEmpleador(){
         alert("Rellene los campos")
     }
     else{
-        document.forms['formEmpleo'].submit(); 
+        document.forms['formEmpleo'].submit();
+        alert('Puesto Agregado'); 
     }
 }
+function ExitEmpleador(){
+    $.ajax({
+        url: 'menu.php',
+        type: 'POST',
+        data: {'exitEmpleador':'true'}
+        
+      });
+      window.location.href = window.location.href.replace("index.php", "Empleos/Admin/menu.php");
+
+}   
