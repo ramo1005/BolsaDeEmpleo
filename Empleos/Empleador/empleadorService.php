@@ -98,6 +98,7 @@
             return $result;
             
         }
+        
         function CountEmpleosCategory($category){
             $stmt = $this->conexcion->prepare("select * from empleo where estado='activo' and categoria=?");
             $stmt->bind_param("s",$category);

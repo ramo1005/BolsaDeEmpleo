@@ -1,4 +1,15 @@
 
+function BackSearch(){
+    
+    window.location.href = window.location.href.replace(window.location.search, "").replace("search", "index")
+
+}
+
+function Filter(){
+    window.location.href = window.location.href + "?filter="+document.getElementById('filter').value;
+
+}
+
 function SingUp(){
 
     document.getElementById('login').style.display="none";

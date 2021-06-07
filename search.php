@@ -1,19 +1,23 @@
 <?php 
-    require_once 'Empleos/Empleo/empleoService.php';
+    require_once 'Empleos/empleoService.php';
     require_once 'Database/conect.php';
     require_once 'layout/layout.php';
     require_once 'layout/menu.php';
 
     $layout = new Layout(true);
+    $menu = new Menu();
+
 
 
     $conect = new Conect();
     $empleos = new EmpleoService($conect->db);
 ?>
 <?php echo $layout->printHeader();?>
+<?php echo $menu->backButton();?>
+
 
 <?php $data=$empleos->GetEmpleoSearch($_GET['search']);
-       if($data->num_rows>0):?>
+    if($data->num_rows>0 && !empty($_GET['search'])):?>
        <h1>Resultados:</h1>
         <table class="table table-dark " id="tableEmpleos"  >
                         <thead>

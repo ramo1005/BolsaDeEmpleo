@@ -12,7 +12,14 @@ $menu = new Menu();
 ?>
 
 <?php echo $layout->printHeader(); ?>
-<?php echo $menu->loginBar();include 'Empleos/portada.php'; ?>
+<?php echo $menu->loginBar();
+      if(!isset($_GET['filter'])){
+            include 'Empleos/portada.php';
+      }
+      else{
+            include 'Empleos/filter.php';
+
+} ?>
 
 <?php echo $layout->printLogin(); ?>
 <?php echo $layout->printSingUp(); ?>
