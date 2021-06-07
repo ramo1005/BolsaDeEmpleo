@@ -30,6 +30,8 @@
                             <td><?= $row['tipo'] ?></td>
                             <td><?= $row['categoria'] ?></td>
                             <td><?= $row['creado'] ?></td>
+                            <td><a href="infoEmpleo.php?jobId=<?= $row['id']?>" target="_blank">Click</a></td>
+
                             </tr>
 
                         <?php endwhile ?>

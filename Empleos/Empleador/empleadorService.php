@@ -49,6 +49,20 @@
             return $result;
             
         }
+        function GetSpecificEmpleo($id){
+
+            $stmt = $this->conexcion->prepare("select * from empleo where id=?");
+            $stmt->bind_param("i",$id);
+
+
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            $stmt->close();
+            
+            return $result;
+            
+        }
         function ToListEmpleos($id){
             $stmt = $this->conexcion->prepare("select * from empleo where id_empleador=?");
             $stmt->bind_param("s",$id);
@@ -71,6 +85,18 @@
             $stmt->close();
             
             return $result;
+        }
+        function CountEmpleos(){
+
+            $stmt = $this->conexcion->prepare("select * from empleo where estado='activo' ");
+
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            $stmt->close();
+            
+            return $result;
+            
         }
         function CountEmpleosCategory($category){
             $stmt = $this->conexcion->prepare("select * from empleo where estado='activo' and categoria=?");

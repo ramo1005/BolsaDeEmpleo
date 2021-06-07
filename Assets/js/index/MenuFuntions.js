@@ -20,6 +20,8 @@ function BackSingUp(){
 function LoginPanel(){
     document.getElementById('btn-login').style.display="none";
     document.getElementById('allJobs').style.display="none";
+    document.getElementById("filter").style.display="none";
+
 
     document.getElementById("btn-login-back").style.display="";
     document.getElementById('login').style.display="";
@@ -30,10 +32,13 @@ function LoginPanel(){
 function BackLoginPanel(){
     document.getElementById('btn-login').style.display="";
     document.getElementById('allJobs').style.display="";
+    document.getElementById("filter").style.display="";
+
 
     document.getElementById("btn-login-back").style.display="none";
     document.getElementById('login').style.display="none";
     document.getElementById('btn-login-admin').style.display="none";
+
 
 }
 function AdminPanel(){

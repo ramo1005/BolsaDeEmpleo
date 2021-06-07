@@ -81,7 +81,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <textarea rows="5" cols="81" id="description" placeholder="Descripcion:" name="description"></textarea>
+                                    <textarea rows="5" cols="81" style="max-width: 100%;" id="description" placeholder="Descripcion:" name="description"></textarea>
                                 </div>
                                 <br>
                             </form>

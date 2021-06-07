@@ -30,17 +30,15 @@
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
+    
         <a class="navbar-brand" href="{$directory}index.php">Empleos</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <form action="search.php" class="form-inline my-2 my-lg-0">
+            <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" >
 
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-
-            </ul>
-        </div>
+        </form>
+   
     </div>
+    
     </nav>
 
     <br><br><br><br><br>
