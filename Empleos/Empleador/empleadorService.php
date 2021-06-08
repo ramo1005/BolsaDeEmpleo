@@ -74,8 +74,20 @@
             
             return $result;
         }
-        function ToListAllEmpleos($category){
-            $stmt = $this->conexcion->prepare("select * from empleo where estado='activo' and categoria=? order by creado desc");
+        function ListAllEmpleosLimit($category){
+            $stmt = $this->conexcion->prepare("select * from empleo where estado='activo' and categoria=? order by creado desc limit 1");
+            $stmt->bind_param("s",$category);
+
+
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            $stmt->close();
+            
+            return $result;
+        }
+        function ListAllEmpleosMore($category){
+            $stmt = $this->conexcion->prepare("select * from empleo where estado='activo' and categoria=? order by creado desc ");
             $stmt->bind_param("s",$category);
 
 

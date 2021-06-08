@@ -13,7 +13,7 @@
     $empleos = new EmpleoService($conect->db);
 ?>
 <?php echo $layout->printHeader();?>
-<?php echo $menu->backButton();?>
+<?php echo $menu->backButtonSearch();?>
 
 
 <?php $data=$empleos->GetEmpleoSearch($_GET['search']);
@@ -28,7 +28,7 @@
                             <th scope="col">Tipo</th>
                             <th scope="col">Categoria</th>
                             <th scope="col">Fecha</th>
-                            <th scope="col">More...</th>
+                            <th scope="col">More info...</th>
                             </tr>
                         </thead>
                         <tbody>

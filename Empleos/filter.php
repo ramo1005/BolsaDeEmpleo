@@ -45,7 +45,7 @@
                             </thead>
                             <tbody>
                                 <?php 
-                                $data2=$empleos->ToListAllEmpleos($_GET['filter']);
+                                $data2=$empleos->ListAllEmpleosMore($_GET['filter']);
                                 if($data2->num_rows>0):
                                     while($row2 = $data2->fetch_assoc()) : ?>
                                         <tr>

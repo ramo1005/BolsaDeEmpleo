@@ -33,7 +33,7 @@
     
         <a class="navbar-brand" href="{$directory}index.php">Empleos</a>
         <form action="search.php" class="form-inline my-2 my-lg-0">
-            <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" >
+            <input id="search" name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" >
 
         </form>
    

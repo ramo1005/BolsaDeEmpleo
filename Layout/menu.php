@@ -12,8 +12,9 @@
                 <button id="btn-login-admin" type="button" class="btn btn-dark float-end" style="display:none;" onclick="AdminPanel()">Administrador</button>
                 <select class="btn btn-dark" id="filter" onchange="Filter()">
                     <option >Filtrar:</option>
-
                 </select>
+                <button id="btn-login-filter" type="button" class="btn btn-dark  " onclick="ClearFilter()">X</button>
+
             </div>
             <br><br>
             
@@ -22,12 +23,27 @@ EOF;
 
             echo $content;
         }
-        function backButton(){
+        function backButtonSearch(){
             $content = <<<EOF
         
             <div class="col-md1" id="login-bar">
 
                 <button id="btn-login" type="button" class="btn btn-dark float-end"onclick="BackSearch()">Regresar</button>
+
+            </div>
+            <br><br>
+            
+
+EOF;
+
+            echo $content;
+        }
+        function backButtonMore(){
+            $content = <<<EOF
+        
+            <div class="col-md1" id="login-bar">
+
+                <button id="btn-login" type="button" class="btn btn-dark float-end"onclick="BackMoreEmpleos()">Regresar</button>
 
             </div>
             <br><br>

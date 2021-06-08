@@ -33,12 +33,12 @@
                                 <th scope="col">Posicion</th>
                                 <th scope="col">Compañia</th>
                                 <th scope="col">Fecha</th>
-                                <th scope="col">More...</th>
+                                <th scope="col">More info...</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php 
-                                $data2=$empleos->ToListAllEmpleos($row['nombre']);
+                                $data2=$empleos->ListAllEmpleosLimit($row['nombre']);
                                 if($data2->num_rows>0):
                                     while($row2 = $data2->fetch_assoc()) : ?>
                                         <tr>
@@ -51,10 +51,11 @@
 
                                     <?php endwhile ?>
                                 <?php endif ?>
-
-
                             </tbody>
+                            
                     </table>
+                    <a  class="btn-dark float-end" href="index.php?filter=<?=$row['nombre']?>" >More</a>
+
                 <?php endif ?>
             <?php endwhile ?>
         <?php endif ?>
