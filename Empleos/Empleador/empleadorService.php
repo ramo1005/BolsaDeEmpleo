@@ -57,6 +57,20 @@
             return $result;
             
         }
+        function GetJobsEmpleador($id){
+
+            $stmt = $this->conexcion->prepare("select * from empleo where id_empleador=?");
+            $stmt->bind_param("i",$id);
+
+
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            $stmt->close();
+            
+            return $result;
+            
+        }
         function GetSpecificEmpleo($id){
 
             $stmt = $this->conexcion->prepare("select * from empleo where id=?");
@@ -94,6 +108,18 @@
             
             return $result;
         }
+        function ListAllApplyEmpleador($id,$jobid){
+            $stmt = $this->conexcion->prepare("select * from postulacion where idEmpleador=? and jobId=? order by fecha desc ");
+            $stmt->bind_param("ii",$id,$jobid);
+
+
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            $stmt->close();
+            
+            return $result;
+        }
         function ListAllEmpleosMore($category){
             $stmt = $this->conexcion->prepare("select * from empleo where estado='activo' and categoria=? order by creado desc ");
             $stmt->bind_param("s",$category);
@@ -109,6 +135,32 @@
         function CountEmpleos(){
 
             $stmt = $this->conexcion->prepare("select * from empleo where estado='activo' ");
+
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            $stmt->close();
+            
+            return $result;
+            
+        }
+        function CountEmpleosEmpleador($id){
+
+            $stmt = $this->conexcion->prepare("select * from postulacion where idEmpleador=? ");
+            $stmt->bind_param("s",$id);
+
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            $stmt->close();
+            
+            return $result;
+            
+        }
+        function CountApplyJobsEmpleador($id){
+
+            $stmt = $this->conexcion->prepare("select * from postulacion where jobId=? ");
+            $stmt->bind_param("s",$id);
 
             $stmt->execute();
 
@@ -142,7 +194,7 @@
                 return 1;
             }
             else{
-                return $totalRows;
+                return $totalRows+1;
             }
             $stmt->close();
 
@@ -157,7 +209,7 @@
                 return 1;
             }
             else{
-                return $totalRows;
+                return $totalRows+1;
             }
             $stmt->close();
 

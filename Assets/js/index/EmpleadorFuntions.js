@@ -3,8 +3,23 @@ function ShowJobsEmpleador(){
     document.getElementById('btn-menu-add').style.display="none";
     document.getElementById('btn-menu-list').style.display="none";
     document.getElementById('btn-menu-exit').style.display="none";
+    document.getElementById('btn-menu-list-apply').style.display="none";
+
 
     document.getElementById('tableEmpleos').style.display="";
+
+}
+function ShowApplyJobEmpleador(){
+    document.getElementById('btn-menu-back-apply').style.display="";
+
+    document.getElementById('btn-menu-add').style.display="none";
+    document.getElementById('btn-menu-list').style.display="none";
+    document.getElementById('btn-menu-exit').style.display="none";
+    document.getElementById('btn-menu-list-apply').style.display="none";
+
+
+
+    document.getElementById('allApplyEmpleador').style.display="";
 
 }
 function BackMenuEmpleador(){
@@ -12,8 +27,23 @@ function BackMenuEmpleador(){
     document.getElementById('btn-menu-add').style.display="";
     document.getElementById('btn-menu-list').style.display="";
     document.getElementById('btn-menu-exit').style.display="";
+    document.getElementById('btn-menu-list-apply').style.display="";
+
 
     document.getElementById('tableEmpleos').style.display="none";
+}
+function BackMenuApply(){
+    document.getElementById('btn-menu-back-apply').style.display="none";
+    document.getElementById('btn-menu-add').style.display="";
+    document.getElementById('btn-menu-list').style.display="";
+    document.getElementById('btn-menu-exit').style.display="";
+    document.getElementById('btn-menu-list-apply').style.display="";
+
+
+    document.getElementById('allApplyEmpleador').style.display="none";
+}
+function BackApplyJob(){
+    
 }
 
 function GetInfoJobEmpleador(){
