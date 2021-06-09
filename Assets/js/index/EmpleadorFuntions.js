@@ -27,6 +27,7 @@ function GetInfoJobEmpleador(){
     var status =document.getElementById('status');
     var description =document.getElementById('description');
 }
+
 function ResetInfoJobEmpleador(){
     document.getElementById('name').value="";
     document.getElementById('company').value="";
@@ -46,6 +47,38 @@ function AddJobEmpleador(){
     document.getElementById('empleadorOption').style.display="none";
     document.getElementById('addJob').style.display="";
 
+}
+function ApplyJob(){
+    document.getElementById('infoEmpleo').style.display="none";
+    document.getElementById('applyJob').style.display="";
+
+}
+function BackApplyJob(){
+    document.getElementById('applyJob').style.display="none";
+    document.getElementById('infoEmpleo').style.display="";
+
+}
+function SendApplyJob(){
+    var nameJob2 =document.getElementById('nameJob');
+    var lastname2 =document.getElementById('lastname');
+    var gender2 =document.getElementById('gender');
+    var location2 =document.getElementById('location');
+    var url2 =document.getElementById('url');
+    var email2 =document.getElementById('email');
+    var curriculum2 =document.getElementById('curriculum');
+    var description2 =document.getElementById('description');
+
+
+    if(nameJob2.value == "" || nameJob2.value  == null || nameJob2.value  == undefined|| lastname2.value == "" || lastname2.value  == null || lastname2.value  == undefined||
+    gender2.value == "Seleccione una opcion:" || location2.value == "" || location2.value  == null || location2.value  == undefined||
+    url2.value == "" || url2.value  == null || url2.value  == undefined|| curriculum2.value == "" || curriculum2.value  == null || curriculum2.value  == undefined ||
+    email2.value == "" || email2.value  == null || email2.value  == undefined|| description2.value == "" || description2.value  == null || description2.value  == undefined){
+        alert("Rellene los campos")
+    }
+    else{
+        alert('Informacion Enviada'); 
+        document.forms['formApplyJob'].submit();
+    }
 }
 function BackAddJobEmpleador(){
     document.getElementById('empleadorOption').style.display="";
@@ -81,6 +114,6 @@ function ExitEmpleador(){
         data: {'exitEmpleador':'true'}
         
       });
-      window.location.href = window.location.href.replace("index.php", "Empleos/Admin/menu.php");
+      window.location.href = window.location.href.replace("Empleos/Empleador/menu.php", "index.php");
 
 }   

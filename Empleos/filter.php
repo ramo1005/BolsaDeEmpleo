@@ -53,7 +53,7 @@
                                         <td><?= $row2['posicion'] ?></td>
                                         <td><?= $row2['compañia'] ?></td>
                                         <td><?= $row2['creado'] ?></td>
-                                        <td><a href="Empleos/Empleador/infoEmpleo.php?jobId=<?= $row2['id']?>" target="_blank">Click</a></td>
+                                        <td><a href="Empleos/Empleador/infoEmpleo.php?jobId=<?= $row2['id']?>">Click</a></td>
                                         </tr>
 
                                     <?php endwhile ?>

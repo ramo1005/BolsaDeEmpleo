@@ -22,7 +22,6 @@
         <table class="table table-dark " id="tableEmpleos"  >
                         <thead>
                             <tr>
-                            <th scope="col">Id</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Compañia</th>
                             <th scope="col">Tipo</th>
@@ -36,7 +35,6 @@
 
                                 while($row = $data->fetch_assoc()) : ?>
                                     <tr>
-                                    <th scope="row"><?= $row['id']?></th>
                                     <td><?= $row['nombre'] ?></td>
                                     <td><?= $row['compañia'] ?></td>
                                     <td><?= $row['tipo'] ?></td>

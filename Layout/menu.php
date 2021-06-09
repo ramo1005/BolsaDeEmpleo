@@ -53,6 +53,22 @@ EOF;
 
             echo $content;
         }
+        function applyButton(){
+            $content = <<<EOF
+        
+            <div class="col-md1" id="login-bar">
+
+                <button id="btn-login" type="button" class="btn btn-dark"onclick="window.history.back();">Regresar</button>
+                <button id="btn-login" type="button" class="btn btn-dark float-end"onclick="ApplyJob()">Aplicar</button>
+
+            </div>
+            <br><br>
+            
+
+EOF;
+
+            echo $content;
+        }
         
     }
 
