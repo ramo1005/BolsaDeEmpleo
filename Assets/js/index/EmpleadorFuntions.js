@@ -146,4 +146,14 @@ function ExitEmpleador(){
       });
       window.location.href = window.location.href.replace("Empleos/Empleador/menu.php", "index.php");
 
-}   
+}
+function ExitEmpleador(){
+    $.ajax({
+        url: 'menu.php',
+        type: 'POST',
+        data: {'exitEmpleador':'true'}
+        
+      });
+      window.location.href = window.location.href.replace("Empleos/Empleador/menu.php", "index.php");
+
+}      

@@ -23,7 +23,7 @@ if(isset($_GET['jobId'])){
 
             #clar the path from database
             $_SESSION['empleo']['photo']=str_replace('\\','/',$row['logo']);
-            $_SESSION['empleo']['photo']=str_replace('C:/xampp/htdocs/','http://10.0.0.16/',$_SESSION['empleo']['photo']);
+            $_SESSION['empleo']['photo']=str_replace('C:/xampp/htdocs/','http://200.88.246.140/',$_SESSION['empleo']['photo']);
             $_SESSION['empleo']['photo']=str_replace('#','%23',$_SESSION['empleo']['photo']);
 
 

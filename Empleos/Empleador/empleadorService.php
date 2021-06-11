@@ -85,6 +85,20 @@
             return $result;
             
         }
+        function GetLimitJobs(){
+
+            $stmt = $this->conexcion->prepare("select limitJobs from admin where id=?");
+            $stmt->bind_param("i",$_SESSION['adminLogin']);
+
+
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            $stmt->close();
+            
+            return $result;
+            
+        }
         function ToListEmpleos($id){
             $stmt = $this->conexcion->prepare("select * from empleo where id_empleador=?");
             $stmt->bind_param("s",$id);
@@ -97,7 +111,18 @@
             return $result;
         }
         function ListAllEmpleosLimit($category){
-            $stmt = $this->conexcion->prepare("select * from empleo where estado='activo' and categoria=? order by creado desc limit 10");
+
+            $data=$this->GetLimitJobs();
+            $limit=$data->fetch_assoc();
+
+            if(isset($limit['limitJobs'])&&$limit['limitJobs']>0){
+
+                $stmt = $this->conexcion->prepare("select * from empleo where estado='activo' and categoria=? order by creado desc limit ".$limit['limitJobs']);
+
+            }
+            else{
+                $stmt = $this->conexcion->prepare("select * from empleo where estado='activo' and categoria=? order by creado desc limit 5");
+            }
             $stmt->bind_param("s",$category);
 
 
@@ -185,38 +210,32 @@
         }
 
         function photoId(){
-            $stmt = $this->conexcion->prepare("select * from empleo");
+            $stmt = $this->conexcion->prepare("select id from empleo order by id desc limit 1");
             $stmt->execute();
-            $stmt->store_result();
-            $totalRows = $stmt->num_rows;
 
-            if($totalRows==0){
-                return 1;
-            }
-            else{
-                return $totalRows+1;
-            }
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
             $stmt->close();
+            
+            return $row['id'];
+
 
         }
         function curriculumId(){
-            $stmt = $this->conexcion->prepare("select * from postulacion");
+            $stmt = $this->conexcion->prepare("select id from postulacion order by id desc limit 1");
             $stmt->execute();
-            $stmt->store_result();
-            $totalRows = $stmt->num_rows;
 
-            if($totalRows==0){
-                return 1;
-            }
-            else{
-                return $totalRows+1;
-            }
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
             $stmt->close();
+            
+            return $row['id'];
 
         }
         function getEmpleoPhoto(){
         
             $id=$this->photoId();
+            print_r($id);
         
             $nombre="empleo#".$id.'.'.pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
             $guardado=$_FILES['photo']['tmp_name'];
@@ -259,29 +278,6 @@
             }
         }
 
-        function getReleasePartidoPicture(){
-        
-        
-            $id=$_POST['idPartido'];
-        
-            $nombre="partido#".$id.'.'.pathinfo($_FILES['logoPartidoAct']['name'], PATHINFO_EXTENSION);
-            $guardado=$_FILES['logoPartidoAct']['tmp_name'];
-        
-            
-            if(!file_exists('img/logos')){
-                mkdir('img/logos',0777,true);
-                if(file_exists('img/logos')){
-                    if(move_uploaded_file($guardado, 'img/logos/'.$nombre)){
-                        $_POST['realpath']=realpath('img/logos/'.$nombre);
-                    }
-                }
-            }else{
-                if(move_uploaded_file($guardado, 'img/logos/'.$nombre)){
-                    $_POST['realpath']=realpath('img/logos/'.$nombre);
-        
-                }
-            }
-        }
         
 
     }

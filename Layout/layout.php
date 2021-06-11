@@ -43,7 +43,7 @@
 
     <br><br><br><br><br>
     <script type="text/javascript">
-    if(window.location.href.includes('index.php')){
+    if(window.location.href.includes('index.php')||window.location.href.includes('search.php')){
         document.getElementById('search').style.display="";
     }
     </script>
@@ -69,11 +69,11 @@ EOF;
                     <div class="card-body">
                             <form id="formLogin" method="post"  enctype="multipart/form-data">
 
-                                <div class="margen-top-2">
+                                <div class="mb-3">
                                     <label for="user" class="form-label">Usuario:</label>
                                     <input type="text" class="form-control" id="user" name="user">
                                 </div>
-                                <div class="margen-top-2">
+                                <div class="mb-3">
                                     <label for="password" class="form-label">Constraseña:</label>
                                     <input type="password" class="form-control" id="password" name="password">
                                 </div>
@@ -111,23 +111,23 @@ EOF;
                     
                     <form id="formSingUp" method="post" enctype="multipart/form-data">
 
-                        <div class="margen-top-2">
+                        <div class="mb-3">
                             <label for="nameSingUp" class="form-label">Nombre:</label>
                             <input type="text" class="form-control" id="nameSingUp">
                         </div>
-                        <div class="margen-top-2">
+                        <div class="mb-3">
                             <label for="companySingUp" class="form-label">Compañia:</label>
                             <input type="text" class="form-control" id="companySingUp">
                         </div>
-                        <div class="margen-top-2">
+                        <div class="mb-3">
                             <label for="userSingUp" class="form-label">Usuario:</label>
                             <input type="text" class="form-control" id="userSingUp">
                         </div>
-                        <div class="margen-top-2">
+                        <div class="mb-3">
                             <label for="passwordSingUp1" class="form-label">Constraseña:</label>
                             <input type="password" class="form-control" id="passwordSingUp1">
                         </div>
-                        <div class="margen-top-2">
+                        <div class="mb-3">
                             <label for="passwordSingUp2" class="form-label">Confirmar Constraseña:</label>
                             <input type="password" class="form-control" id="passwordSingUp2">
                         </div>
@@ -164,11 +164,11 @@ EOF;
                     <div class="card-body">
                             <form id="formAdmin" method="post"  enctype="multipart/form-data">
 
-                                <div class="margen-top-2">
+                                <div class="mb-3">
                                     <label for="userAdmin" class="form-label">Usuario:</label>
                                     <input type="text" class="form-control" id="userAdmin" name="userAdmin">
                                 </div>
-                                <div class="margen-top-2">
+                                <div class="mb-3">
                                     <label for="passwordAdmin" class="form-label">Constraseña:</label>
                                     <input type="password" class="form-control" id="passwordAdmin" name="passwordAdmin">
                                 </div>
@@ -186,6 +186,127 @@ EOF;
 EOF;
 
     echo $admin;
+
+    }
+    function printCategoryModals(){
+
+
+        $modal = <<<EOF
+    <div class="modal fade" id="add-category-modal" tabindex="-1" aria-labelledby="addCategoryModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCategoryModal">Nueva Categoria</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="menu.php" method="POST">
+                        <div class="mb-3">
+                            <label for="category-name" class="form-label">Nombre:</label>
+                            <input name="nameAdd" type="text" class="form-control" id="category-name">
+    
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Agregar</button>
+                        </div>
+                    </form>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div class="modal fade" id="release-category-modal" tabindex="-1" aria-labelledby="releaseCategoryModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="releaseCategoryModal">Actualizar Categoria</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="menu.php"  method="POST">
+                        <div class="mb-3">
+                            <label for="category-name-release" class="form-label">Nombre:</label>
+                            <input name="nameRelease" type="text" class="form-control" id="category-name-release">
+                        </div>
+                        <div class="mb-3" style="display:none;">
+                            <label for="category-id-release" class="form-label">Id:</label>
+                            <input name="idRelease" type="text" class="form-control" id="category-id-release">
+                        </div>
+                        <div class="mb-3">
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                        </div>
+                    </form>
+                </div>
+            </div> 
+        </div>
+    </div>
+    </div>
+
+    <div class="modal fade" id="delete-category-modal" tabindex="-1" aria-labelledby="deleteCategoryModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteCategoryModal">Borrar Categoria</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+    
+                    <form action="menu.php" method="POST">
+                        <div class="mb-3">
+                            <label for="category-id-delete" class="form-label">Id:</label>
+                            <input name="idDelete" type="text" class="form-control" id="category-id-delete" readonly="readonly">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Borrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div> 
+        </div>
+    </div>
+
+EOF;
+
+    echo $modal;
+
+    }
+    function printModalsJobs(){
+
+
+        $modal = <<<EOF
+
+        <div class="modal fade" id="delete-job-modal" tabindex="-1" aria-labelledby="deleteJobModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteJobModal">Borrar Puesto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="menu.php" method="POST">
+                            <div class="mb-3">
+                                <label for="job-id-delete" class="form-label">Id:</label>
+                                <input name="idDelete" type="text" class="form-control" id="job-id-delete" readonly="readonly">
+                            </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="submit" class="btn btn-primary">Borrar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+EOF;
+
+    echo $modal;
 
     }
     

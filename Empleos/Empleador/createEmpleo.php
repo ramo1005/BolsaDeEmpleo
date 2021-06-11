@@ -12,9 +12,9 @@
     isset($_POST['position'])&&isset($_POST['location'])&& isset($_POST['url'])&&isset($_POST['status'])&&
     isset($_POST['email'])&&isset($_POST['description'])&& isset($_POST['idEmpleador'])){
 
-        $item->getEmpleoPhoto();
-        $empleo = new Empleo($_POST['name'],$_POST['company'],$_POST['type'],$_POST['category'],$_POST['position'],$_POST['location'],$_POST['url'],$_POST['realpath'],$_POST['email'],$_POST['status'],$_POST['description'],$_POST['idEmpleador']);
+        $empleo = new Empleo($_POST['name'],$_POST['company'],$_POST['type'],$_POST['category'],$_POST['position'],$_POST['location'],$_POST['url'],'...',$_POST['email'],$_POST['status'],$_POST['description'],$_POST['idEmpleador']);
         $item->InsertEmpleo($empleo);
+        $item->getEmpleoPhoto();
         
     }
     if(isset($_POST['nameJob'])&&isset($_POST['lastname'])&& isset($_POST['gender'])&&isset($_POST['location'])&&
