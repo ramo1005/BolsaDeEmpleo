@@ -1,4 +1,5 @@
 
+//Login Empleador
 function GetEmpleadorInfo(){
     var user=document.getElementById('user');
     var password=document.getElementById('password');

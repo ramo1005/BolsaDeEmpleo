@@ -15,14 +15,20 @@
         $empleo = new Empleo($_POST['name'],$_POST['company'],$_POST['type'],$_POST['category'],$_POST['position'],$_POST['location'],$_POST['url'],'...',$_POST['email'],$_POST['status'],$_POST['description'],$_POST['idEmpleador']);
         $item->InsertEmpleo($empleo);
         $item->getEmpleoPhoto();
+        $item->RefreshPathPhoto();
+
+
         
     }
     if(isset($_POST['nameJob'])&&isset($_POST['lastname'])&& isset($_POST['gender'])&&isset($_POST['location'])&&
     isset($_POST['url'])&&isset($_GET['jobId'])&& isset($_GET['empleadorId'])&&isset($_POST['email'])&&isset($_POST['description'])){
 
-        $item->getApplyJobFile();
         $applyJob = new ApplyJob($_POST['nameJob'],$_POST['lastname'],$_POST['gender'],$_POST['location'],$_POST['url'],$_POST['realpath'],$_POST['email'],$_POST['description'],$_GET['empleadorId'],$_GET['jobId']);
         $item->InsertApplyJob($applyJob);
+        $item->getApplyJobFile();
+        $item->RefreshPathCurriculum();
+
+
         
     }
 

@@ -1,16 +1,16 @@
 
-
+//Barra de busqueda
 function BackSearch(){
     
     window.location.href = window.location.href.replace(window.location.search, "").replace("search", "index")
 
 }
 function BackMoreEmpleos(){
-    
     close()
 }
 
 
+//Filtro
 function Filter(){
     window.location.href = window.location.href + "?filter="+document.getElementById('filter').value;
 
@@ -20,6 +20,7 @@ function ClearFilter(){
 
 }
 
+//Cambios de paneles
 function SingUp(){
 
     document.getElementById('login').style.display="none";

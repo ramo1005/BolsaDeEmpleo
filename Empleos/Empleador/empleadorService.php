@@ -232,10 +232,22 @@
             return $row['id'];
 
         }
+        function RefreshPathPhoto(){
+            
+            $id=$this->photoId();
+
+
+            $stmt = $this->conexcion->prepare("update empleo SET logo = ? where id = ?");
+            $stmt->bind_param("si",$_POST['realpath'],$id);
+
+            $stmt->execute();
+            $stmt->close();
+                        
+        }
+
         function getEmpleoPhoto(){
         
             $id=$this->photoId();
-            print_r($id);
         
             $nombre="empleo#".$id.'.'.pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
             $guardado=$_FILES['photo']['tmp_name'];
@@ -254,6 +266,18 @@
         
                 }
             }
+        }
+        function RefreshPathCurriculum(){
+
+            $id=$this->curriculumId();
+
+            
+            $stmt = $this->conexcion->prepare("update postulacion SET curriculum = ? where id = ?");
+            $stmt->bind_param("si",$_POST['realpath'],$id);
+
+            $stmt->execute();
+            $stmt->close();
+                        
         }
         function getApplyJobFile(){
         

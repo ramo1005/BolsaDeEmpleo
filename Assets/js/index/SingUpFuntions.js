@@ -1,4 +1,5 @@
 
+//Modulo de Registro
 function GetInfoSingUp(){
     var nameSingUp=document.getElementById('nameSingUp');
     var companySingUp=document.getElementById('companySingUp');

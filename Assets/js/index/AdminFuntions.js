@@ -1,4 +1,5 @@
 
+//Login Admin
 function GetAdminInfo(){
     var userAdmin=document.getElementById('userAdmin');
     var passwordAdmin=document.getElementById('passwordAdmin');
@@ -29,7 +30,7 @@ function CheckAdmin(){
     }
 }
 
-
+//Limitar puestos en el index
 function LimitJobsIndex(){
 
     var limit = prompt("Limite de puestos:");
@@ -47,7 +48,8 @@ function LimitJobsIndex(){
 
 }
 
-//Jobs Panel
+
+//Gestionar Puesto
 function JobsPanel(){
     document.getElementById('adminOpcion').style.display="none";
     document.getElementById('jobsPanel').style.display="";
@@ -61,7 +63,6 @@ function BackCategoryJobs(){
     document.getElementById('jobsTable').style.display="none";
 
 }
-
 function EditJob(data){
     document.getElementById('idRelease').value=data[0];
     document.getElementById('nameRelease').value=data[1];
@@ -130,6 +131,7 @@ function DeleteCategory(id){
     document.getElementById('category-id-delete').value=id;
 }
 
+//Extras
 function ExitAdmin(){
     $.ajax({
         url: 'menu.php',
