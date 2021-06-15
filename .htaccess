@@ -1,0 +1,4 @@
+Options All -Indexes
+
+ErrorDocument 403 http://localhost/BolsaDeEmpleos/server/error/403.php
+ErrorDocument 404 http://localhost/BolsaDeEmpleos/server/error/404.php

@@ -1,3 +1,17 @@
+//error 404
+
+function BackToIndex404(){
+    
+    window.location.href = window.location.href.replace("server/error/404.php", "index.php")
+
+}
+
+function BackToIndex403(){
+    
+    window.location.href = window.location.href.replace("server/error/403.php", "index.php")
+
+}
+
 
 //Barra de busqueda
 function BackSearch(){
