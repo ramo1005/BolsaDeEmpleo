@@ -19,7 +19,7 @@ function CheckAddJobEmpleador(){
     if(nameJob.value == "" || nameJob.value  == null || nameJob.value  == undefined|| company.value == "" || company.value  == null || company.value  == undefined||
     type.value == "Seleccione una opcion:" ||category.value == "Seleccione una opcion:" ||
     position.value == "" || position.value  == null || position.value  == undefined|| location.value == "" || location.value  == null || location.value  == undefined||
-    url.value == "" || url.value  == null || url.value  == undefined|| photo.value == "" || photo.value  == null || photo.value  == undefined ||
+    url.value == "" || url.value  == null || url.value  == undefined|| 
     email.value == "" || email.value  == null || email.value  == undefined|| description.value == "" || description.value  == null || description.value  == undefined){
         alert("Rellene los campos")
     }
@@ -28,6 +28,7 @@ function CheckAddJobEmpleador(){
         alert('Puesto Agregado'); 
     }
 }
+
 function GetInfoJobEmpleador(){
     var company =document.getElementById('company');
     var type =document.getElementById('type');
@@ -62,6 +63,11 @@ function ShowJobsEmpleador(){
     document.getElementById('btn-menu-exit').style.display="none";
     document.getElementById('btn-menu-list-apply').style.display="none";
 
+    try{
+        document.getElementById('list-jobs-title').style.display="";
+    }catch{
+
+    }
 
     document.getElementById('tableEmpleos').style.display="";
 
@@ -75,12 +81,18 @@ function BackMenuEmpleador(){
     document.getElementById('btn-menu-exit').style.display="";
     document.getElementById('btn-menu-list-apply').style.display="";
 
+    try{
+        document.getElementById('list-jobs-title').style.display="none";
+    }catch{
+        
+    }
     document.getElementById('tableEmpleos').style.display="none";
 }
 
 //Listar Postulaciones
 function ShowApplyJobEmpleador(){
     document.getElementById('btn-menu-back-apply').style.display="";
+
 
     document.getElementById('btn-menu-add').style.display="none";
     document.getElementById('btn-menu-list').style.display="none";
@@ -89,16 +101,15 @@ function ShowApplyJobEmpleador(){
 
     document.getElementById('allApplyEmpleador').style.display="";
 
-
 }
 
 function BackMenuApply(){
     document.getElementById('btn-menu-back-apply').style.display="none";
+
     document.getElementById('btn-menu-add').style.display="";
     document.getElementById('btn-menu-list').style.display="";
     document.getElementById('btn-menu-exit').style.display="";
     document.getElementById('btn-menu-list-apply').style.display="";
-
 
     document.getElementById('allApplyEmpleador').style.display="none";
 }
@@ -106,11 +117,15 @@ function BackMenuApply(){
 //Aplicar puesto
 function ApplyJob(){
     document.getElementById('infoEmpleo').style.display="none";
+    document.getElementById('btn-apply').style.display="none";
+
     document.getElementById('applyJob').style.display="";
 
 }
 function BackApplyJob(){
     document.getElementById('applyJob').style.display="none";
+
+    document.getElementById('btn-apply').style.display="";
     document.getElementById('infoEmpleo').style.display="";
 
 }
@@ -137,10 +152,15 @@ function SendApplyJob(){
     }
 }
 
+
 //Extras
 function CloseInfoEmpleo(){
-    close();
-
+    if(window.history.back()==undefined){
+        close();
+    }
+    else{
+        window.history.back();
+    }
 }
 
 function ExitEmpleador(){

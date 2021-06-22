@@ -6,7 +6,6 @@ include 'createEmpleo.php';
 $layout = new Layout(false);
 $menu = new Menu();
 session_start();
-
 if(isset($_POST['exitEmpleador'])){
     session_destroy();
 }
@@ -35,4 +34,4 @@ if (!isset($_SESSION['empleador'])){
 
     
 
-<?php include 'listEmpleador.php';include 'listApplyEmpleador.php';echo $layout->printFooter(); include 'addEmpleador.php';?>
+<?php   include 'listEmpleador.php';include 'listApplyEmpleador.php';echo $layout->printFooter(); include 'addEmpleador.php';?>

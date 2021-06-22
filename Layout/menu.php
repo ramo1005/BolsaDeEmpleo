@@ -56,10 +56,9 @@ EOF;
         function applyButton(){
             $content = <<<EOF
         
-            <div class="col-md1" id="login-bar">
+            <div class="col-md1" id="apply-bar">
 
-                <button id="btn-login" type="button" class="btn btn-dark"onclick="BackApplyJob()">Regresar</button>
-                <button id="btn-login" type="button" class="btn btn-dark float-end"onclick="ApplyJob()">Aplicar</button>
+                <button id="btn-apply" type="button" class="btn btn-dark float-end"onclick="ApplyJob()">Aplicar</button>
 
             </div>
             <br><br>

@@ -120,6 +120,10 @@ EOF;
                             <input type="text" class="form-control" id="companySingUp">
                         </div>
                         <div class="mb-3">
+                            <label for="emailSingUp" class="form-label">Email:</label>
+                            <input type="text" class="form-control" id="emailSingUp">
+                        </div>
+                        <div class="mb-3">
                             <label for="userSingUp" class="form-label">Usuario:</label>
                             <input type="text" class="form-control" id="userSingUp">
                         </div>

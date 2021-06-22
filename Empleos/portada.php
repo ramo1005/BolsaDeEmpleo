@@ -59,7 +59,7 @@
                 <?php endif ?>
             <?php endwhile ?>
         <?php endif ?>
-    <?php else:?> <h1>No hay empleos Disponibles</h1>
+    <?php else:?> <h1 id="title-portada">No hay empleos Disponibles</h1>
         <script type="text/javascript">
              document.getElementById('filter').style.display="none";
              document.getElementById('btn-login-filter').style.display="none";

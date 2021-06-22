@@ -7,10 +7,10 @@
             $this->conexcion=$con;
         }
         
-        function CheckAdmin($user,$password){
+        function CheckAdmin($user){
 
-            $stmt = $this->conexcion->prepare("select * from admin where user=? and password =?");
-            $stmt->bind_param("ss",$user,$password);
+            $stmt = $this->conexcion->prepare("select * from admin where user=? ");
+            $stmt->bind_param("s",$user);
 
             $stmt->execute();
 

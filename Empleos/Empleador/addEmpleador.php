@@ -22,7 +22,7 @@
                                 <div>
                                 <div class="margen-top-2">
                                     <label for="company" class="form-label">Compañia:</label>
-                                    <input type="text" class="form-control" id="company"name="company">
+                                    <input type="text" class="form-control" id="company"name="company" value="<?=$category->GetCompanyUser();?> "readonly>
                                 </div>
                                 <div>
                                     <label for="type" class="form-label">Tipo:</label>
@@ -61,7 +61,7 @@
                                     <input type="text" class="form-control" id="url"name="url">
                                 </div>
                                 <div>
-                                        <label for="photo" class="form-label">Logo:</label>
+                                        <label for="photo" class="form-label" >Logo:</label>
                                         <input type="file" class="form-control" name="photo" id="photo"size="30">
                                 </div>
                                 <div class="margen-top-2">

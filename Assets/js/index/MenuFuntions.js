@@ -73,9 +73,12 @@ function BackLoginPanel(){
     document.getElementById("btn-login-filter").style.display="";
     document.getElementById("search").style.display="";
 
+    document.getElementById("search").style.display="";
+
     document.getElementById("btn-login-back").style.display="none";
     document.getElementById('login').style.display="none";
     document.getElementById('btn-login-admin').style.display="none";
+    
 
 
 }

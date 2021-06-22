@@ -9,14 +9,19 @@
 
 
     if(isset($_POST['userAdmin'])&&isset($_POST['passwordAdmin'])){
-        $check=$admin->CheckAdmin($_POST['userAdmin'],$_POST['passwordAdmin']);
+        $check=$admin->CheckAdmin($_POST['userAdmin']);
 
         if($check->num_rows==1){
             while($row = $check->fetch_assoc()){
-                $_SESSION['admin']='true';
-                $_SESSION['adminLogin']=$row['id'];
-                echo '1';
+                if(password_verify($_POST['passwordAdmin'],$row['password'])){
+                    $_SESSION['admin']='true';
+                    $_SESSION['adminLogin']=$row['id'];
+                    echo '1'; 
+                }
+                else{
+                    echo '0';
 
+                }
             }
         }
         else{

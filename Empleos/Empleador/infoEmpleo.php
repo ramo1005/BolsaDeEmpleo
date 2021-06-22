@@ -22,9 +22,15 @@ if(isset($_GET['jobId'])){
         while($row = $data->fetch_assoc()){
 
             #clar the path from database
-            $_SESSION['empleo']['photo']=str_replace('\\','/',$row['logo']);
-            $_SESSION['empleo']['photo']=str_replace('C:/xampp/htdocs/','http://200.88.246.140/',$_SESSION['empleo']['photo']);
-            $_SESSION['empleo']['photo']=str_replace('#','%23',$_SESSION['empleo']['photo']);
+            if(!empty( $row['logo'])){
+                $_SESSION['empleo']['photo']=str_replace('\\','/',$row['logo']);
+                $_SESSION['empleo']['photo']=str_replace('C:/xampp/htdocs/','http://localhost/',$_SESSION['empleo']['photo']);
+                $_SESSION['empleo']['photo']=str_replace('#','%23',$_SESSION['empleo']['photo']);
+            }
+            else{
+                $_SESSION['empleo']['photo']=str_replace('\\','/',realpath('img/logos/default.jpg'));
+                $_SESSION['empleo']['photo']=str_replace('C:/xampp/htdocs/','http://localhost/',$_SESSION['empleo']['photo']);
+            }
 
 
             $_SESSION['empleo']['name']=$row['nombre'];

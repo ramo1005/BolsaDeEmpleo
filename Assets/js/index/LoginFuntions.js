@@ -18,7 +18,7 @@ function CheckLogin(){
             type: 'POST',
             data: {'userEmpleador':user.value,'passwordEmpleador':password.value},
             success: function (data) {
-                console.log(data[0])
+                console.log(data)
                 if (data[0]==0){
                     alert("Datos Incorrectos");
                 }

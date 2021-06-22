@@ -8,9 +8,10 @@
     $data=$empleos->ToListEmpleos($_SESSION['empleadorLogin']);
 
 ?>
+    <table class="table table-dark " id="tableEmpleos" style="display:none;" >
+
 <?php 
 if($data->num_rows>0):?>
-    <table class="table table-dark " id="tableEmpleos" style="display:none;" >
                     <thead>
                         <tr>
                         <th scope="col">Id</th>
@@ -38,7 +39,8 @@ if($data->num_rows>0):?>
 
                             <?php endwhile ?>
                     </tbody>
-    </table>
-<?php else:?><h1 >No hay Puestos Agregados</h1>
+<?php else:?><h1 id="list-jobs-title" style="display:none;">No hay Puestos Agregados</h1>
 
 <?php endif ?>   
+</table>
+

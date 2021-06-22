@@ -42,8 +42,13 @@ function LimitJobsIndex(){
           });
     }
     else{
-        alert("error")
-        LimitJobsIndex()
+        if (limit == "" || limit  == null || limit == undefined){
+
+        }
+        else{
+            alert("error")
+            LimitJobsIndex()
+        }
     }
 
 }

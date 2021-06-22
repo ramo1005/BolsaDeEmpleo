@@ -1,4 +1,10 @@
 <?php
+
+    if (str_contains('http://'. $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'], 'index.php')) { 
+        require_once 'EmailHandler/EmailHandler.php';
+    }
+
+
     class EmpleadorService{
 
         public $conexcion;
@@ -6,11 +12,21 @@
         function __construct($con){
             $this->conexcion=$con;
         }
+        function generateRandomString() {
+            $length = 25;
+            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $charactersLength = strlen($characters);
+            $randomString = '';
+            for ($i = 0; $i < $length; $i++) {
+                $randomString .= $characters[rand(0, $charactersLength - 1)];
+            }
+            return $randomString;
+        }
 
-        function CheckEmpleador($user,$password){
+        function CheckEmpleador($user){
 
-            $stmt = $this->conexcion->prepare("select * from empleador where user=? and password =?");
-            $stmt->bind_param("ss",$user,$password);
+            $stmt = $this->conexcion->prepare("select * from empleador where user=?");
+            $stmt->bind_param("s",$user);
 
             $stmt->execute();
 
@@ -23,10 +39,16 @@
         
         function InsertEmpleador($item){
 
-            $stmt = $this->conexcion->prepare("insert into empleador (nombre,compañia,user,password) values(?,?,?,?)");
-            $stmt->bind_param("ssss",$item->nombre,$item->compañia,$item->user,$item->password);
+            $token= new EmailHandler();
+            $api=$this->generateRandomString();
+
+            $stmt = $this->conexcion->prepare("insert into empleador (nombre,compañia,email,user,password,api_token) values(?,?,?,?,?,?)");
+            $stmt->bind_param("ssssss",$item->nombre,$item->compañia,$item->email,$item->user,$item->password,$api);
             $stmt->execute();
             $stmt->close();
+            $token->SendEmail($item->email,'Bolsa de Empleos',$api);
+
+
             
         }
         function InsertEmpleo($item){
@@ -206,6 +228,37 @@
             $stmt->close();
 
             return $totalRows;
+
+        }
+        function GetCompanyUser(){
+            $stmt = $this->conexcion->prepare("select compañia from empleador where id=".$_SESSION['empleadorLogin']);
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            $stmt->close();
+            
+            return $row['compañia'];
+
+
+        }
+        function GetEmpleadorApi($token){
+            $stmt = $this->conexcion->prepare("select * from empleador where api_token=?");
+            $stmt->bind_param("s",$token);
+
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            if($result->num_rows>0){
+                $row = $result->fetch_assoc();
+                return $row['id'];
+
+            }
+            else{
+                return 0;
+            }
+            $stmt->close();
+            
 
         }
 
