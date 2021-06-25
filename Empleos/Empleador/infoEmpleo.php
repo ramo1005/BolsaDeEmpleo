@@ -24,12 +24,13 @@ if(isset($_GET['jobId'])){
             #clar the path from database
             if(!empty( $row['logo'])){
                 $_SESSION['empleo']['photo']=str_replace('\\','/',$row['logo']);
-                $_SESSION['empleo']['photo']=str_replace('C:/xampp/htdocs/','http://localhost/',$_SESSION['empleo']['photo']);
+                $_SESSION['empleo']['photo']=str_replace('C:/xampp/htdocs/','http://'.$_SERVER['SERVER_NAME'].'/',$_SESSION['empleo']['photo']);
                 $_SESSION['empleo']['photo']=str_replace('#','%23',$_SESSION['empleo']['photo']);
+
             }
             else{
                 $_SESSION['empleo']['photo']=str_replace('\\','/',realpath('img/logos/default.jpg'));
-                $_SESSION['empleo']['photo']=str_replace('C:/xampp/htdocs/','http://localhost/',$_SESSION['empleo']['photo']);
+                $_SESSION['empleo']['photo']=str_replace('C:/xampp/htdocs/','http://'.$_SERVER['SERVER_NAME'].'/',$_SESSION['empleo']['photo']);
             }
 
 
